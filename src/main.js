@@ -11,7 +11,7 @@ async function asyncApiCall(search){
     let jsonifiedResponse = await doctorList.asyncApiCall(search);
     getElements(jsonifiedResponse);
   } catch (error) {
-    console.error("There was an error getting elements from your request: " + error.message);
+    $("#errorResult").text("There was an error getting elements from your request: " + error.message);
   }
 }
 
@@ -20,6 +20,7 @@ function getElements(response) {
     for (let i = 0; i < response.data.length; i++){
       console.log(response.data[i].profile);
       displayInfo(response.data[i]);
+      $("#displayResults").show();
     }
   } else {
     $("#errorResult").text("Your search did not match any results.");
@@ -48,6 +49,7 @@ $(document).ready(function() {
     console.log("form submitted");
     $("#resultsList").text("");
     $("#errorResult").text("");
+    $("#displayResults").hide();
 
     const state = "WA".toLowerCase();
     const city = "Seattle".toLowerCase();
