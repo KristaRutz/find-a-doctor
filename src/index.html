@@ -8,13 +8,24 @@
       <div class="jumbotron">
         <h1>Find-A-Doctor Application</h1>
       </div>
-      <div class="devTools">
+      <div class="devTools form-group">
         <button class="btn btn-primary" id="devBtn">Test API Call</button>
       </div>
       <div class="userInputs">
         <form id="inputForm">
-          <label for="userSymptom">Enter your symptom: </label>
-          <input type="text" id="userSymptom">
+          <div class="form-group">
+            <label for="userSymptom">Enter your symptom: </label>
+            <input type="text" id="userSymptom">
+          </div>
+          <div class="form-group">
+            <label for="city">Enter your city: </label>
+            <input type="text" id="city">
+          </div>
+          <div class="form-group">
+          <label for="state">Enter your state: </label>
+          <input type="text" id="state">
+          </div>
+          <button type="submit" class="btn btn-primary">Find doctors</button>
         </form>
       </div>
       <div id="displayResults">
