@@ -25,21 +25,21 @@ function getElements(response) {
   } else {
     $("#errorResult").text("Your search did not match any results.");
   }
-  // console.log(response.data[1].profile.first_name);
-  // console.log(response.data[2].profile.first_name);
-  // console.log(response.data[3].profile.first_name);
-  // console.log(response.data[4].profile.first_name);
-  // console.log(response.data[5].profile.first_name);
-  // console.log(response.data[6].profile.first_name);
-  // console.log(response.data[7].profile.first_name);
-  // console.log(response.data[8].profile.first_name);
-  // console.log(response.data[9].profile.first_name);
-  //console.log(response.data[10].profile.first_name);
-  //console.log(response.data[11].profile.first_name);
 }
 
 function displayInfo(doctor){
-  let newRow = `<tr class="${doctor.profile.slug}"><td>${doctor.profile.first_name} ${doctor.profile.last_name}</td><td>${doctor.profile.title}</td><td>${doctor.practices[0].visit_address}</td><td>${doctor.practices[0].phones[0].number}</td><td>${doctor.practices[0].website}</td><td>${doctor.practices[0].accepts_new_patients}</td></tr>`;
+  const profile = doctor.profile;
+  const practices = doctor.practices;
+  //const numPractices = doctor.practices.length;
+
+  let newRow = `<tr class="${profile.slug}"><td>${doctor.profile.first_name} ${doctor.profile.last_name}</td><td>${doctor.profile.title}</td><td>${doctor.practices[0].visit_address.street}<br>${doctor.practices[0].visit_address.city}, ${doctor.practices[0].visit_address.state} ${doctor.practices[0].visit_address.zip}</td><td>${doctor.practices[0].phones[0].number}</td><td>${doctor.practices[0].website}</td><td>${doctor.practices[0].accepts_new_patients}</td></tr>`
+
+  if (practices.length > 0) { 
+    for (let i = 1; i <= practices.length; i++){
+      newRow += `<tr class="${profile.slug}-practice-${i}"><td></td><td></td><td>${doctor.practices[i].visit_address.street}<br>${doctor.practices[i].visit_address.city}, ${doctor.practices[i].visit_address.state} ${doctor.practices[i].visit_address.zip}</td><td>${doctor.practices[i].phones[i].number}</td><td>${doctor.practices[i].website}</td><td>${doctor.practices[i].accepts_new_patients}</td>`;
+    }
+  }
+
   $("#resultsList").append(newRow);
 }
 
@@ -51,8 +51,8 @@ $(document).ready(function() {
     $("#errorResult").text("");
     $("#displayResults").hide();
 
-    const state = "WA".toLowerCase();
-    const city = "Seattle".toLowerCase();
+    const state = $("#state").val().toLowerCase();
+    const city = $("#city").val().toLowerCase();
 
     const location = `${state}-${city}`;
     const queryTerm = $("#userSymptom").val();
