@@ -39,7 +39,7 @@ function getElements(response) {
 }
 
 function displayInfo(doctor){
-  let newRow = `<tr class="${doctor.profile.slug}"><td>${doctor.profile.first_name} ${doctor.profile.last_name}</td><td>${doctor.profile.title}</td><td>${doctor.practices[0].visit_address}</td><td>${doctor.practices[0].phones[0].number}</td><td>${doctor.practices[0].website}</td><td>${doctor.practices[0].accepts_new_patients}</td></tr>`;
+  let newRow = `<tr class="${doctor.profile.slug}"><td>${doctor.profile.first_name} ${doctor.profile.last_name}</td><td>${doctor.profile.title}</td><td>${doctor.practices[0].visit_address.street}<br>${doctor.practices[0].visit_address.city}, ${doctor.practices[0].visit_address.state} ${doctor.practices[0].visit_address.zip}</td><td>${doctor.practices[0].phones[0].number}</td><td>${doctor.practices[0].website}</td><td>${doctor.practices[0].accepts_new_patients}</td></tr>`;
   $("#resultsList").append(newRow);
 }
 
@@ -51,8 +51,8 @@ $(document).ready(function() {
     $("#errorResult").text("");
     $("#displayResults").hide();
 
-    const state = "WA".toLowerCase();
-    const city = "Seattle".toLowerCase();
+    const state = $("#state").val().toLowerCase();
+    const city = $("#city").val().toLowerCase();
 
     const location = `${state}-${city}`;
     const queryTerm = $("#userSymptom").val();
