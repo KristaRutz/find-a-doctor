@@ -17,18 +17,18 @@ $(document).ready(function() {
     }
 
     function getElements(response) {
-      console.log(response.data[0].practices[0].name);
-      console.log(response.data[1].practices[0].name);
-      console.log(response.data[2].practices[0].name);
-      console.log(response.data[3].practices[0].name);
-      console.log(response.data[4].practices[0].name);
-      console.log(response.data[5].practices[0].name);
-      console.log(response.data[6].practices[0].name);
-      console.log(response.data[7].practices[0].name);
-      console.log(response.data[8].practices[0].name);
-      console.log(response.data[9].practices[0].name);
-      console.log(response.data[10].practices[0].name);
-      console.log(response.data[11].practices[0].name);
+      console.log(response.data[0].profile.first_name);
+      console.log(response.data[1].profile.first_name);
+      console.log(response.data[2].profile.first_name);
+      console.log(response.data[3].profile.first_name);
+      console.log(response.data[4].profile.first_name);
+      console.log(response.data[5].profile.first_name);
+      console.log(response.data[6].profile.first_name);
+      console.log(response.data[7].profile.first_name);
+      console.log(response.data[8].profile.first_name);
+      console.log(response.data[9].profile.first_name);
+      console.log(response.data[10].profile.first_name);
+      console.log(response.data[11].profile.first_name);
     }
 
   });
