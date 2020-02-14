@@ -1,9 +1,9 @@
-# README Template
+# Find-a-Doc Application
 
-#### An application to convert between planetary years, hosted on [GitHub Pages](https://kristarutz.github.io/Solar-Systemwide-Calendar/), where a user can calculate their age on all of the planets in our solar system.
+#### An application where users may enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in Seattle who can treat their medical issue, hosted on [GitHub Pages](https://kristarutz.github.io/find-a-doctor/)
 
 
-### _By **Krista Rutz**. Last updated February 7, 2020_
+### _By **Krista Rutz**. Last updated February 14, 2020_
 
 ## Description
 
