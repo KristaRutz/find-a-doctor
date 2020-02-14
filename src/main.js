@@ -6,13 +6,17 @@ import { DoctorService } from './doctor-service';
 import { Search } from './searchterms';
 
 async function asyncApiCall(search){
-  let doctorList = new DoctorService();
-  let jsonifiedResponse = await doctorList.asyncApiCall(search);
-  getElements(jsonifiedResponse);
+  try {
+    let doctorList = new DoctorService();
+    let jsonifiedResponse = await doctorList.asyncApiCall(search);
+    getElements(jsonifiedResponse);
+  } catch (error) {
+    console.error("There was an error getting elements from your request: " + error.message);
+  }
 }
 
 function getElements(response) {
-  if(response.data.length > 0){
+  if(response.data.length){
     for (let i = 0; i < response.data.length; i++){
       console.log(response.data[i].profile);
       displayInfo(response.data[i]);
@@ -53,7 +57,7 @@ $(document).ready(function() {
     const specialtyUID = "speech-therapist";
     const gender = "";
     const sort = "best-match-asc";
-    const limit = 10;
+    const limit = 20;
     const skip = 0;
 
     let searchTerms = new Search(location, queryTerm, specialtyUID, gender, sort, skip, limit);
