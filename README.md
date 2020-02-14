@@ -11,6 +11,15 @@ This JavaScript application allows the user to convert time in Earth years to ye
 
 ## Installation / Set-up
 
+You will need a **free API Key** to run this application.
+* Visit the BetterDoctor API site and click “Get a free API key”.
+* Fill out the form, and confirm your e-mail.
+* Your API key should be listed on the front page (ex: “a2c356ibgh44…..”) or under My Account > Applications.
+* Place your token in an _.env_ file at the top level of your directory. **Name your API key variable API_KEY in the _.env_ file.** It is best practice to include _.env_ in your _.gitignore_ file.
+* * The file should contain this code: ``` API_KEY = [insert your key, e.g. a2c356ibgh44…] ```
+
+
+
 This app is ready to run at this url:
 https://kristarutz.github.io/Solar-Systemwide-Calendar/
 
