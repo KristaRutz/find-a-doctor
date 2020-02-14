@@ -1,3 +1,7 @@
 #displayResults {
-  display: none;
+  /* display: none; */
+}
+
+#resultsTable {
+  width: 100%;
 }
