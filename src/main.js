@@ -58,10 +58,14 @@ $(document).ready(function() {
     const state = $("#state").val().toLowerCase();
     const city = $("#city").val().toLowerCase();
     const location = `${state}-${city}`;
+    console.log(location);
 
     let queryTerm = $("#userSymptom").val();
+    console.log(queryTerm);
 
-    const name = $("#docName").val().encodeURI();
+    const name = $("#docName").val();
+    console.log(name);
+
     const specialtyUID = "speech-therapist";
     const gender = "";
     const sort = "distance-asc";
