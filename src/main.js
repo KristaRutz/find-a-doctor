@@ -6,19 +6,22 @@ import { DoctorService } from './doctor-service';
 import { Search } from './searchterms';
 
 async function asyncApiCall(search){
-  try {
-    let doctorList = new DoctorService();
-    let jsonifiedResponse = await doctorList.asyncApiCall(search);
-    getElements(jsonifiedResponse);
-  } catch (error) {
-    $("#errorResult").text("There was an error getting elements from your request: " + error.message);
-  }
+  let doctorList = new DoctorService();
+  let response = await doctorList.asyncApiCall(search);
+  getElements(response);
 }
 
 function getElements(response) {
+  console.log("before getElements");
+  console.log(response.meta.total);
+  if(response.meta.total > 0){
+    console.log("results");
+  } else {
+    console.log("no results");
+  }
   if(response.data.length){
     for (let i = 0; i < response.data.length; i++){
-      console.log(response.data[i].profile);
+      console.log(response.data[i].practices);
       displayInfo(response.data[i]);
       $("#displayResults").show();
     }
@@ -29,16 +32,14 @@ function getElements(response) {
 
 function displayInfo(doctor){
   const profile = doctor.profile;
-  const practices = doctor.practices;
-  //const numPractices = doctor.practices.length;
+  const mainPractice = doctor.practices[0];
 
-  let newRow = `<tr class="${profile.slug}"><td>${doctor.profile.first_name} ${doctor.profile.last_name}</td><td>${doctor.profile.title}</td><td>${doctor.practices[0].visit_address.street}<br>${doctor.practices[0].visit_address.city}, ${doctor.practices[0].visit_address.state} ${doctor.practices[0].visit_address.zip}</td><td>${doctor.practices[0].phones[0].number}</td><td>${doctor.practices[0].website}</td><td>${doctor.practices[0].accepts_new_patients}</td></tr>`
-
-  if (practices.length > 0) { 
-    for (let i = 1; i <= practices.length; i++){
-      newRow += `<tr class="${profile.slug}-practice-${i}"><td></td><td></td><td>${doctor.practices[i].visit_address.street}<br>${doctor.practices[i].visit_address.city}, ${doctor.practices[i].visit_address.state} ${doctor.practices[i].visit_address.zip}</td><td>${doctor.practices[i].phones[i].number}</td><td>${doctor.practices[i].website}</td><td>${doctor.practices[i].accepts_new_patients}</td>`;
-    }
+  let website = mainPractice.website;
+  if (!mainPractice.website){
+    website = " ";
   }
+
+  let newRow = `<tr class="${profile.slug}"><td>${doctor.profile.first_name} ${doctor.profile.last_name}</td><td>${doctor.profile.title}</td><td>${mainPractice.visit_address.street}<br>${mainPractice.visit_address.city}, ${mainPractice.visit_address.state} ${mainPractice.visit_address.zip}</td><td>${mainPractice.phones[0].number}</td><td>${website}</td><td>${mainPractice.accepts_new_patients}</td></tr>`
 
   $("#resultsList").append(newRow);
 }
@@ -50,12 +51,19 @@ $(document).ready(function() {
     $("#resultsList").text("");
     $("#errorResult").text("");
     $("#displayResults").hide();
+    console.log($("#userSymptom").val());
 
-    const state = $("#state").val().toLowerCase();
-    const city = $("#city").val().toLowerCase();
+    //const state = $("#state").val().toLowerCase();
+    //const city = $("#city").val().toLowerCase();
+
+    console.log($("#state").val());
+    const state = "wa"
+    const city = "seattle"
 
     const location = `${state}-${city}`;
-    const queryTerm = $("#userSymptom").val();
+    //let queryTerm = $("#userSymptom").val();
+    let queryTerm = "throat";
+    console.log(queryTerm);
     const specialtyUID = "speech-therapist";
     const gender = "";
     const sort = "best-match-asc";
