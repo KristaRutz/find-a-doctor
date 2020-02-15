@@ -1,13 +1,13 @@
 # Find-a-Doc Application
 
-#### An application where users may enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in Seattle who can treat their medical issue, hosted on [GitHub Pages](https://kristarutz.github.io/find-a-doctor/)
+#### An application where users may enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in Seattle who can treat their medical issue.
 
 
 ### _By **Krista Rutz**. Last updated February 14, 2020_
 
 ## Description
 
-This JavaScript application allows the user to convert time in Earth years to years on other planets, based on the speed of each planet's orbit of the sun in Earth years.
+This JavaScript application allows the user to search the BetterDoctor database to receive 10 doctors related to their search inputs.
 
 ## Installation / Set-up
 
@@ -18,33 +18,23 @@ You will need a **free API Key** to run this application.
 * Place your token in an _.env_ file at the top level of your directory. **Name your API key variable API_KEY in the _.env_ file.** It is best practice to include _.env_ in your _.gitignore_ file.
 * * The file should contain this code: ``` API_KEY = [insert your key, e.g. a2c356ibgh44…] ```
 
+You can then download or clone the repository to run this program locally.
 
-
-This app is ready to run at this url:
-https://kristarutz.github.io/Solar-Systemwide-Calendar/
-
-You can also download the repository to run this program locally.
-
-**Download ZIP:**
-
-* Select "Download" on the [GitHub Repository](https://github.com/KristaRutz/Solar-Systemwide-Calendar.git) site 
-* Download ZIP: Open the ZIP download and extract files. The new folder will be created as "Solar-Systemwide-Calendar"
-* In this folder, select the index.html document.
-* Choose "Open With" > Google Chrome or another browser of your choice.
-* The website is now ready to use!
-
-**Clone:**
-
-* Clone from command line: ```git clone https://github.com/KristaRutz/Solar-Systemwide-Calendar.git```
-* Install packages from command line:
+* Select "Download" on the [GitHub Repository](https://github.com/KristaRutz/find-a-doctor.git) site 
+* Download ZIP: Open the ZIP download and extract files. The new folder will be created as "find-a-doctor".
+**or**
+* Change into desktop directory and clone from command line: ```git clone https://github.com/KristaRutz/Solar-Systemwide-Calendar.git```
+* Install packages from the root directory of the new folder in the command line:
   * ```npm install```
   * ```npm run build```
   * ```npm run start```
 * Upon success, this will create a local server for the site which will reflect the current state of the program and accept user modifications.
+* You can also view the app by opening the folder containing your files and double clicking on the _index.html_ file found in the _dist_ folder once the npm build is finished.
 
 ## Technologies Used
 
 * **JavaScript** and **jQuery**
+* BetterDoctor **API**
 * **Node.js** Package Manager
   * **webpack** bundler
   * **Jest** testing
@@ -58,24 +48,13 @@ You can also download the repository to run this program locally.
 
 | Spec | Example Input | Expected Output |
 | :-------------     | :------------- | :------------- |
-| correctly construct a planet calendar | Pluto, 248 | {planetName: "Pluto", yearLength: 248} |
-|accept a length of time in earth years and correctly return it in x planet years| Pluto, 248 | 1 |
-| return the user's remaining life expectancy on a given planet | Pluto, Age 25 | 0.19 more years expected |
-| construct an object that contains an array of planet calendar objects for all planets in our solar system |||
-| Takes an age (in earth years) and return a string listing this timeframe on each planet in the solar system | 50 | "Mercury: 207.47, Venus: 81.27, Earth: 50.00, Mars: 26.58, Jupiter: 4.22, Saturn: 1.70, Uranus: 0.60, Neptune: 0.30" |
-| Tells a user their life expectancy on each planet in the solar system | 1 | On Mercury, 297.10 more years expected. On Venus, 116.38 more years expected. On Earth, 71.60 more years expected. On Mars, 38.07 more years expected. On Jupiter, 6.04 more years expected. On Saturn, 2.43 more years expected. On Uranus, 0.85 more years expected. On Neptune, 0.43 more years expected. |
 ||||
-| User begins with an empty form | "Example" | "Example" |
-| When user clicks <kbd>Go</kbd>, the list of ages on other planets appears | clicks <kbd>Go</kbd>| "Mercury: 0.00, Venus: 0.00, Earth: 0.00, Mars: 0.00, Jupiter: 0.00, Saturn: 0.00, Uranus: 0.00, Neptune: 0.00" |
-| When user enters age, list updates to reflect age | 1 | "Mercury: 4.15, Venus: 1.63, Earth: 1.00, Mars: 0.53, Jupiter: 0.08, Saturn: 0.03, Uranus: 0.01, Neptune: 0.01" |
-| User selects "Life Expectancy" option | clicks <kbd>Go</kbd> | "On Mercury, 263.90 more years expected. On Venus, 103.38 more years expected. On Earth, 63.60 more years expected. On Mars, 33.81 more years expected. On Jupiter, 5.36 more years expected. On Saturn, 2.16 more years expected. On Uranus, 0.76 more years expected. On Neptune, 0.39 more years expected." |
-
 
 </details>
 
 ## Known Bugs
 
-No known bugs.
+Search terms must be very specific because of the way the information is fed into the database.
 
 ## Support and contact details
 
