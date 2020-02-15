@@ -1,7 +1,8 @@
 export class Search {
-  constructor(location, query, specialityUID, gender, sort, limit, skip){
+  constructor(location, query, name, specialityUID, gender, sort, limit, skip){
     this.location = location;
     this.query = query;
+    this.name = name;
     this.specialityUID = specialityUID;
     this.gender = gender;
     this.sort = sort;

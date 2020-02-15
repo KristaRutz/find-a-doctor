@@ -21,7 +21,6 @@ function getElements(response) {
   }
   if(response.data.length){
     for (let i = 0; i < response.data.length; i++){
-      console.log(response.data[i].practices);
       displayInfo(response.data[i]);
       $("#displayResults").show();
     }
@@ -55,26 +54,21 @@ $(document).ready(function() {
     $("#resultsList").text("");
     $("#errorResult").text("");
     $("#displayResults").hide();
-    console.log($("#userSymptom").val());
 
-    //const state = $("#state").val().toLowerCase();
-    //const city = $("#city").val().toLowerCase();
-
-    console.log($("#state").val());
-    const state = "wa"
-    const city = "seattle"
-
+    const state = $("#state").val().toLowerCase();
+    const city = $("#city").val().toLowerCase();
     const location = `${state}-${city}`;
+
     let queryTerm = $("#userSymptom").val();
-    //let queryTerm = "throat";
-    console.log(queryTerm);
+
+    const name = $("#docName").val().encodeURI();
     const specialtyUID = "speech-therapist";
     const gender = "";
     const sort = "distance-asc";
     const limit = 20;
     const skip = 0;
 
-    let searchTerms = new Search(location, queryTerm, specialtyUID, gender, sort, skip, limit);
+    let searchTerms = new Search(location, queryTerm, name, specialtyUID, gender, sort, skip, limit);
 
     asyncApiCall(searchTerms);
   });
