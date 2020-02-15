@@ -38,8 +38,12 @@ function displayInfo(doctor){
   if (!mainPractice.website){
     website = " ";
   }
+  let newPatients = "Yes";
+  if (!mainPractice.accepts_new_patients){
+    newPatients = "No";
+  }
 
-  let newRow = `<tr class="${profile.slug}"><td>${doctor.profile.first_name} ${doctor.profile.last_name}</td><td>${doctor.profile.title}</td><td>${mainPractice.visit_address.street}<br>${mainPractice.visit_address.city}, ${mainPractice.visit_address.state} ${mainPractice.visit_address.zip}</td><td>${mainPractice.phones[0].number}</td><td>${website}</td><td>${mainPractice.accepts_new_patients}</td></tr>`
+  let newRow = `<tr class="${profile.slug}"><td>${doctor.profile.first_name} ${doctor.profile.last_name}</td><td>${doctor.profile.title}</td><td>${mainPractice.visit_address.street}<br>${mainPractice.visit_address.city}, ${mainPractice.visit_address.state} ${mainPractice.visit_address.zip}</td><td>${mainPractice.phones[0].number}</td><td>${website}</td><td>${newPatients}</td></tr>`
 
   $("#resultsList").append(newRow);
 }
@@ -61,12 +65,12 @@ $(document).ready(function() {
     const city = "seattle"
 
     const location = `${state}-${city}`;
-    //let queryTerm = $("#userSymptom").val();
-    let queryTerm = "throat";
+    let queryTerm = $("#userSymptom").val();
+    //let queryTerm = "throat";
     console.log(queryTerm);
     const specialtyUID = "speech-therapist";
     const gender = "";
-    const sort = "best-match-asc";
+    const sort = "distance-asc";
     const limit = 20;
     const skip = 0;
 
