@@ -1,9 +1,9 @@
-# Find-a-Doc Application
+# Find-a-Doc Application - GH-Pages version
 
-#### An application where users may enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in Seattle who can treat their medical issue.
+#### An application where users may enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of nearby doctors who can treat their medical issue, hosted on [GitHub pages](https://kristarutz.github.io/find-a-doctor/).
 
 
-### _By **Krista Rutz**. Last updated February 14, 2020_
+### _By **Krista Rutz**. Last updated February 16, 2020_
 
 ## Description
 
@@ -15,21 +15,8 @@ You will need a **free API Key** to run this application.
 * Visit the BetterDoctor API site and click “Get a free API key”.
 * Fill out the form, and confirm your e-mail.
 * Your API key should be listed on the front page (ex: “a2c356ibgh44…..”) or under My Account > Applications.
-* Place your token in an _.env_ file at the top level of your directory. **Name your API key variable API_KEY in the _.env_ file.** It is best practice to include _.env_ in your _.gitignore_ file.
-* * The file should contain this code: ``` API_KEY = [insert your key, e.g. a2c356ibgh44…] ```
 
-You can then download or clone the repository to run this program locally.
-
-* Select "Download" on the [GitHub Repository](https://github.com/KristaRutz/find-a-doctor.git) site 
-* Download ZIP: Open the ZIP download and extract files. The new folder will be created as "find-a-doctor".
-**or**
-* Change into desktop directory and clone from command line: ```git clone https://github.com/KristaRutz/find-a-doctor.git```
-* Install packages from the root directory of the new folder in the command line:
-  * ```npm install```
-  * ```npm run build```
-  * ```npm run start```
-* Upon success, this will create a local server for the site which will reflect the current state of the program and accept user modifications.
-* You can also view the app by opening the folder containing your files and double clicking on the _index.html_ file found in the _dist_ folder once the npm build is finished.
+You can then open this in [GitHub pages](https://kristarutz.github.io/find-a-doctor/) and use your API key to access the data.
 
 ## Technologies Used
 
