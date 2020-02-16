@@ -23,7 +23,7 @@ You can then download or clone the repository to run this program locally.
 * Select "Download" on the [GitHub Repository](https://github.com/KristaRutz/find-a-doctor.git) site 
 * Download ZIP: Open the ZIP download and extract files. The new folder will be created as "find-a-doctor".
 **or**
-* Change into desktop directory and clone from command line: ```git clone https://github.com/KristaRutz/Solar-Systemwide-Calendar.git```
+* Change into desktop directory and clone from command line: ```git clone https://github.com/KristaRutz/find-a-doctor.git```
 * Install packages from the root directory of the new folder in the command line:
   * ```npm install```
   * ```npm run build```
