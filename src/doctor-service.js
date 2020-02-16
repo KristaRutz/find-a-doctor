@@ -5,7 +5,9 @@ export class DoctorService{
       let url = this.buildURL(search);
       let response = await fetch(url);
       let jsonifiedResponse = await response.json();
-     // console.log(jsonifiedResponse);
+      if (jsonifiedResponse.meta.error){
+        throw new Error(jsonifiedResponse.meta.message);
+      }
       return jsonifiedResponse;
     } catch (error) {
       console.error("There was an error handling your request: " + error.message);

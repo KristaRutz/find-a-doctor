@@ -85,7 +85,6 @@ function searchWithTerms(){
 $(document).ready(function() {
   $("#inputForm").submit(function(event) {
     event.preventDefault();
-    console.log("form submitted");
     $("#resultsList").text("");
     $("#errorResult").text("");
     $("#displayResults").hide();
