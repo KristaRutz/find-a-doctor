@@ -89,26 +89,6 @@ $(document).ready(function() {
     $("#errorResult").text("");
     $("#displayResults").hide();
 
-<<<<<<< HEAD
-    const state = $("#state").val().toLowerCase();
-    const city = $("#city").val().toLowerCase();
-    const location = `${state}-${city}`;
-
-    let queryTerm = $("#userSymptom").val();
-
-    const name = $("#docName").val();
-
-    const specialtyUID = "speech-therapist";
-    const gender = "";
-    const sort = "distance-asc";
-    const limit = 20;
-    const skip = 0;
-
-    let searchTerms = new Search(location, queryTerm, name, specialtyUID, gender, sort, skip, limit);
-
-    asyncApiCall(searchTerms);
-  });
-=======
     let searchTerms = searchWithTerms();
     console.log(searchTerms);
     asyncApiCall(searchTerms);
@@ -118,5 +98,4 @@ $(document).ready(function() {
   //   console.log("dev button clicked");
   //   let searchTerms = new Search();  
   // });
->>>>>>> dev
 });
