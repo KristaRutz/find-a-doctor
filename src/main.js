@@ -12,7 +12,6 @@ async function asyncApiCall(search){
 }
 
 function getElements(response) {
-  console.log("before getElements");
   console.log(response.meta.total);
   if(response.meta.total > 0){
     console.log("results");
@@ -50,7 +49,6 @@ function displayInfo(doctor){
 $(document).ready(function() {
   $("#inputForm").submit(function(event) {
     event.preventDefault();
-    console.log("form submitted");
     $("#resultsList").text("");
     $("#errorResult").text("");
     $("#displayResults").hide();
@@ -58,13 +56,10 @@ $(document).ready(function() {
     const state = $("#state").val().toLowerCase();
     const city = $("#city").val().toLowerCase();
     const location = `${state}-${city}`;
-    console.log(location);
 
     let queryTerm = $("#userSymptom").val();
-    console.log(queryTerm);
 
     const name = $("#docName").val();
-    console.log(name);
 
     const specialtyUID = "speech-therapist";
     const gender = "";
@@ -75,10 +70,5 @@ $(document).ready(function() {
     let searchTerms = new Search(location, queryTerm, name, specialtyUID, gender, sort, skip, limit);
 
     asyncApiCall(searchTerms);
-  });
-
-  $("#devBtn").click(function(){
-    console.log("dev button clicked");
-    let searchTerms = new Search();  
   });
 });
