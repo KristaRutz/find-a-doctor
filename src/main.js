@@ -59,6 +59,7 @@ function searchWithTerms(){
   console.log(specialtyUID);
   const queryTerm = encodeURI($("#userSymptom").val());
   const name = encodeURI($("#docName").val());
+  const apiKey = $("#apiKey").val();
 
   //default location is Seattle, WA, unless user changes it
   let location = "wa-seattle";
@@ -76,7 +77,7 @@ function searchWithTerms(){
   let limit = 15;
   let skip = 0;
 
-  let searchTerms = new Search(location, queryTerm, name, specialtyUID, gender, sort, limit, skip);
+  let searchTerms = new Search(location, queryTerm, name, specialtyUID, gender, sort, limit, skip, apiKey);
   return searchTerms;
 }
 

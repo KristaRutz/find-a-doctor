@@ -15,7 +15,7 @@ export class DoctorService{
   }
 
   buildURL(search){
-    let url = `https://api.betterdoctor.com/2016-03-01/doctors?location=${search.location}&skip=${search.skip}&limit=${search.limit}&user_key=${process.env.API_KEY}`;
+    let url = `https://api.betterdoctor.com/2016-03-01/doctors?location=${search.location}&skip=${search.skip}&limit=${search.limit}&user_key=${search.apiKey}`;
     if (search.name){
       url += `&name=${search.name}`;
     }
