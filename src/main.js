@@ -88,12 +88,6 @@ $(document).ready(function() {
     $("#displayResults").hide();
 
     let searchTerms = searchWithTerms();
-    console.log(searchTerms);
     asyncApiCall(searchTerms);
   });
-
-  // $("#devBtn").click(function(){
-  //   console.log("dev button clicked");
-  //   let searchTerms = new Search();  
-  // });
 });
