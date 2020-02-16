@@ -48,7 +48,13 @@ You can then download or clone the repository to run this program locally.
 
 | Spec | Example Input | Expected Output |
 | :-------------     | :------------- | :------------- |
-||||
+| user selects "Find doctor" button to receive a list of doctors in the Seattle area | click | list of doctors |
+| If the query response includes any doctors, first name, last name, address, phone number, website and whether or not the doctor is accepting new patients is displayed | click | table of doctor info |
+| User enters a medical issue to receive a list of doctors in the Seattle area that fit the search query | Symptom: "sore throat"| "Displaying 15 of 104 matches to your search." |
+| user enters a name to receive a list of doctors in the Seattle area that fit the search query | Name: "Mark K" | "Displaying 4 of 4 matches to your search." |
+| If no doctors meet the search criteria, the application returns a notification that states that no doctors meet the criteria. | Symptom: "hello" | "Your search did not match any results. |
+| If the API call results in an error (any message not a 200 OK), the application returns a notification that states what the error is. | No API Key | There was an error handling your request: 401 (Unauthorized) |
+
 
 </details>
 
