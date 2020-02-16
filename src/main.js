@@ -8,8 +8,8 @@ import { Search } from './searchterms';
 async function asyncApiCall(search){
   let doctorList = new DoctorService();
   try {
-  let response = await doctorList.asyncApiCall(search);
-  getElements(response);
+    let response = await doctorList.asyncApiCall(search);
+    getElements(response);
   } catch (error) {
     $("#errorResult").text("There was an error handling your request: " + error.message);
   }
@@ -25,7 +25,6 @@ function getElements(response) {
   }
 
   if(response.meta.total > 0){
-    console.log(response.data.length)
     for (let i = 0; i < response.data.length; i++){
       displayInfo(response.data[i]);
       $("#displayResults").show();
@@ -56,7 +55,6 @@ function displayInfo(doctor){
 function searchWithTerms(){
   const inputtedCity = $("#city").val();
   const inputtedState = $("#state").val();
-  const inputtedZip = $("#zip").val();
   const specialtyUID = encodeURI($("#specialty").val());
   console.log(specialtyUID);
   const queryTerm = encodeURI($("#userSymptom").val());
@@ -64,12 +62,12 @@ function searchWithTerms(){
 
   //default location is Seattle, WA, unless user changes it
   let location = "wa-seattle";
-  if (inputtedZip){
-    location = parseInt(inputtedZip);
-  } else if (inputtedState && inputtedState){
+  if (inputtedCity && inputtedState){
     const state = encodeURI(inputtedState.toLowerCase());
     const city = encodeURI(inputtedCity.toLowerCase());
     location = `${state}-${city}`;
+  } else if (inputtedState) {
+    location = inputtedState;
   }
 
   //advanced search options coming soon

@@ -10,7 +10,6 @@ export class DoctorService{
       }
       return jsonifiedResponse;
     } catch (error) {
-      console.error("There was an error handling your request: " + error.message);
       throw new Error(error.message);
     }
   }
@@ -26,7 +25,6 @@ export class DoctorService{
     if (search.specialtyUID){
       url += `&specialty_uid=${search.specialtyUID}`
     }
-    console.log(url);
     return url;
   }
 }
