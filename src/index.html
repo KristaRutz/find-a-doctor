@@ -7,10 +7,17 @@
     <div class="container">
       <div class="jumbotron">
         <h1>Find-A-Doctor Application</h1>
-        <p>Try putting in something that ails you, like "eye", or a doctor name, like "Mark"</p>
       </div>
+      <!-- <div class="devTools form-group">
+        <button class="btn btn-primary" id="devBtn">Test API Call</button>
+      </div> -->
       <div class="userInputs">
         <form id="inputForm">
+          <div class="form-group">
+            <p class="small">Fill out any fields that you wish. You do not need to specify a specialty or doctor name.</p>
+            <label for="specialty">Search for specialists in this field: </label>
+            <input type="input" id="specialty">
+          </div>
           <div class="form-group">
             <label for="docName">Find doctors by name: </label>
             <input type="select" id="docName">
@@ -19,18 +26,23 @@
             <label for="userSymptom">Enter your symptom: </label>
             <input type="text" id="userSymptom">
           </div>
+          <p class="small">The default location is set to Seattle, Washington. If you wish to change the search region, please provide a ZIP code or <em>both</em> a valid city and state key.</p>
           <div class="form-group">
             <label for="city">Enter your city: </label>
             <input type="text" id="city">
+            <label for="state">Enter your 2-letter state code: </label>
+            <input type="text" id="state">
           </div>
           <div class="form-group">
-          <label for="state">Enter your 2-letter state code: </label>
-          <input type="text" id="state">
+            <label for="zip">You may enter a ZIP instead of a city/state combination. </label>
+            <input type="number" id="zip">
           </div>
           <button type="submit" class="btn btn-primary">Find doctors</button>
         </form>
       </div>
       <div id="displayResults">
+        <br>
+        <p>Displaying <span id="maxShown"></span> of <span id="totalHits"></span> matches to your search.</p>
         <table id="resultsTable">
           <thead>
             <th>Name</th>
@@ -41,14 +53,11 @@
             <th>Accepting new patients?</th>
           </thead>
           <tbody id="resultsList">
-            <tr>
-              <td>Krista Rutz </td>
-              <td>Not M.D.</td>
-            </tr>
           </tbody>
         </table>
       </div>
       <div>
+        <br>
         <p id="errorResult"></p>
       </div>
     </div>

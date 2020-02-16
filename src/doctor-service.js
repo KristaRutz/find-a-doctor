@@ -1,11 +1,32 @@
 export class DoctorService{
+
   async asyncApiCall(search){
     try {
-      let response = await fetch(`https://api.betterdoctor.com/2016-03-01/doctors?location=${search.location}&skip=0&limit=10&user_key=${process.env.API_KEY}&query=${search.query}&name=${search.name}`);
+      let url = this.buildURL(search);
+      let response = await fetch(url);
       let jsonifiedResponse = await response.json();
+      if (jsonifiedResponse.meta.error){
+        throw new Error(jsonifiedResponse.meta.message);
+      }
       return jsonifiedResponse;
     } catch (error) {
       console.error("There was an error handling your request: " + error.message);
+      throw new Error(error.message);
     }
+  }
+
+  buildURL(search){
+    let url = `https://api.betterdoctor.com/2016-03-01/doctors?location=${search.location}&skip=${search.skip}&limit=${search.limit}&user_key=${process.env.API_KEY}`;
+    if (search.name){
+      url += `&name=${search.name}`;
+    }
+    if (search.query){
+      url += `&query=${search.query}`;
+    }
+    if (search.specialtyUID){
+      url += `&specialty_uid=${search.specialtyUID}`
+    }
+    console.log(url);
+    return url;
   }
 }
